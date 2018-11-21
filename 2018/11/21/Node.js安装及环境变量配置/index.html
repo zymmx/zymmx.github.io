@@ -3,23 +3,24 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>木木夕</title>
+  <title>Node.js安装及环境变量配置 | 木木夕</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456title: Node.js安装及环境变量配置data: comment: truetoc: trueCategories: 其它Tags: JavaScript Node.js安装及环境变量配置 傻瓜式安装，注意选择保存的路径  此处说明下：新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载N">
+  <meta name="description" content="Node.js安装及环境变量配置傻瓜式安装，注意选择保存的路径  此处说明下：新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载Node.js需要装的东西  说明：这里的环境配置主要配置的是npm安装的全局模块所在的路径，以及缓存cache的路径，之所以要配置，是因为以后在执行类似：npm install">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="木木夕">
+<meta property="og:title" content="Node.js安装及环境变量配置">
 <meta property="og:url" content="https://zymmx.github.io/2018/11/21/Node.js安装及环境变量配置/index.html">
 <meta property="og:site_name" content="木木夕">
-<meta property="og:description" content="123456title: Node.js安装及环境变量配置data: comment: truetoc: trueCategories: 其它Tags: JavaScript Node.js安装及环境变量配置 傻瓜式安装，注意选择保存的路径  此处说明下：新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载N">
+<meta property="og:description" content="Node.js安装及环境变量配置傻瓜式安装，注意选择保存的路径  此处说明下：新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载Node.js需要装的东西  说明：这里的环境配置主要配置的是npm安装的全局模块所在的路径，以及缓存cache的路径，之所以要配置，是因为以后在执行类似：npm install">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="c:/Users/Administrator/AppData/Local/Temp/1542770140650.png">
 <meta property="og:image" content="c:/Users/Administrator/AppData/Local/Temp/1542770300130.png">
 <meta property="og:image" content="c:/Users/Administrator/AppData/Local/Temp/1542770309169.png">
 <meta property="og:image" content="c:/Users/Administrator/AppData/Local/Temp/1542770346462.png">
-<meta property="og:updated_time" content="2018-11-21T15:38:49.373Z">
+<meta property="og:updated_time" content="2018-11-21T17:54:54.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="木木夕">
-<meta name="twitter:description" content="123456title: Node.js安装及环境变量配置data: comment: truetoc: trueCategories: 其它Tags: JavaScript Node.js安装及环境变量配置 傻瓜式安装，注意选择保存的路径  此处说明下：新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载N">
+<meta name="twitter:title" content="Node.js安装及环境变量配置">
+<meta name="twitter:description" content="Node.js安装及环境变量配置傻瓜式安装，注意选择保存的路径  此处说明下：新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载Node.js需要装的东西  说明：这里的环境配置主要配置的是npm安装的全局模块所在的路径，以及缓存cache的路径，之所以要配置，是因为以后在执行类似：npm install">
 <meta name="twitter:image" content="c:/Users/Administrator/AppData/Local/Temp/1542770140650.png">
   
     <link rel="alternate" href="/atom.xml" title="木木夕" type="application/atom+xml">
@@ -48,8 +49,8 @@
     <h3 class="description">如梦江湖 如戏人生</h3>
     <div class="count-box">
       <a href="/archives"><div><strong>8</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>5</strong><br>标签</div></a>
+      <a href="/categories"><div><strong>6</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>7</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -90,11 +91,30 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js安装及环境变量配置
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂散/">杂散</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: Node.js安装及环境变量配置</span><br><span class="line">data: </span><br><span class="line">comment: true</span><br><span class="line">toc: true</span><br><span class="line">Categories: 其它</span><br><span class="line">Tags: JavaScript</span><br></pre></td></tr></table></figure>
-<p>Node.js安装及环境变量配置</p>
-<p>傻瓜式安装，注意选择保存的路径</p>
+        <h4 id="Node-js安装及环境变量配置"><a href="#Node-js安装及环境变量配置" class="headerlink" title="Node.js安装及环境变量配置"></a>Node.js安装及环境变量配置</h4><p>傻瓜式安装，注意选择保存的路径</p>
 <p><img src="C:\Users\Administrator\AppData\Local\Temp\1542770140650.png" alt="1542770140650"></p>
 <p>此处说明下：新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载Node.js需要装的东西 </p>
 <p>说明：这里的环境配置主要配置的是npm安装的全局模块所在的路径，以及缓存cache的路径，之所以要配置，是因为以后在执行类似：npm install express [-g] （后面的可选参数-g，g代表global全局安装的意思）的安装语句时，会将安装的模块安装到【C:\Users\用户名\AppData\Roaming\npm】路径中，占C盘空间。 例如：我希望将全模块所在路径和缓存路径放在我node.js安装的文件夹中，则在我安装的文件夹【D:\Develop\nodejs】下创建两个文件夹【node_global】及【node_cache】如下图： </p>
@@ -117,16 +137,27 @@
       <a data-url="https://zymmx.github.io/2018/11/21/Node.js安装及环境变量配置/" data-id="cjorc2r480000yowhus54dxq7" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
+    <a href="/2018/11/22/hexo + github 搭建个人博客/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          hexo + github 搭建个人博客
+        
+      </div>
+    </a>
   
-    <a href="/2018/11/21/hexo+github 搭建个人博客（基础篇）/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2018/11/21/虚拟机安装及相关环境配置/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">虚拟机安装及相关环境配置</div>
     </a>
   
 </nav>
@@ -180,8 +211,8 @@
     <h3 class="description">如梦江湖 如戏人生</h3>
     <div class="count-box">
       <a href="/archives"><div><strong>8</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>5</strong><br>标签</div></a>
+      <a href="/categories"><div><strong>6</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>7</strong><br>标签</div></a>
     </div>
 
 
