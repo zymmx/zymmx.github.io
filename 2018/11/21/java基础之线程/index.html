@@ -1,244 +1,152 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="木木夕">
-    
-    <meta name="description" content="如梦江湖 如戏人生">
-    
-    
-    
-    
-    
-    
-    <title>java基础之进程与线程 | 木木夕</title>
-    <link href="”https://zymmx.github.io“" rel="”prefetch”">
-
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/aos.css">
-<link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aos.js"></script>
-    <script src="/js/highslide/highslide-full.min.js"></script>
-    <link rel="stylesheet" href="/js/highslide/highslide.css">
-    <style type="text/css">
-        @media (max-width: 768px) {
-            body {
-                background-color: #f0f0f0;
-                background: url('/imgs/xsbg.gif');
-                background-attachment: fixed;
-            }
-        }
-    </style>
-    
-    <!--<script type="text/javascript">
-      if (document.images) {
-        var avatar = new Image();
-        avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg'.split(',')
-        var previewsPreLoad = []
-        for(var i = 0; i < length; i++) {
-          previewsPreLoad.push(new Image())
-          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
-        }
-      }
-    </script>-->
-</head></html>
-<body>
-    <!-- 背景轮播图功能 -->
-    <section class="hidden-xs">
+  <meta charset="utf-8">
   
-</section>
-    <!-- 欧尼酱功能, 谁用谁知道 -->
-    
-    <header class="navbar navbar-inverse" id="gal-header">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
-                <span class="fa fa-lg fa-reorder"></span>
-            </button>
-            <a href="https://zymmx.github.io">
-                
-                <style>
-                    #gal-header .navbar-brand {
-                        height: 54px;
-                        line-height: 24px;
-                        font-size: 28px;
-                        opacity: 1;
-                        background-color: rgba(0,0,0,0);
-                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
-                    }
-                </style>
-                <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">木木夕</div>
-                
-            </a>
-        </div>
-        <div class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav" id="menu-gal">
-                
-                
-                <li class="">
+  <title>java基础之进程与线程 | 木木夕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog">
+  
+  <meta name="description" content="java基础之进程与线程进程是资源（CPU、内存等）分配的基本单位，它是程序执行时的一个实例。程序运行时系统就会创建一个进程，并为它分配资源，然后把该进程放入进程就绪队列，进程调度器选中它的时候就会为它分配CPU时间，程序开始真正运行。  线程是程序执行时的最小单位，它是进程的一个执行流，是CPU调度和分派的基本单位，一个进程可以由很多个线程组成，线程间共享进程的所有资源，每个线程有自己的堆栈和局">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础之进程与线程">
+<meta property="og:url" content="https://zymmx.github.io/2018/11/21/java基础之线程/index.html">
+<meta property="og:site_name" content="木木夕">
+<meta property="og:description" content="java基础之进程与线程进程是资源（CPU、内存等）分配的基本单位，它是程序执行时的一个实例。程序运行时系统就会创建一个进程，并为它分配资源，然后把该进程放入进程就绪队列，进程调度器选中它的时候就会为它分配CPU时间，程序开始真正运行。  线程是程序执行时的最小单位，它是进程的一个执行流，是CPU调度和分派的基本单位，一个进程可以由很多个线程组成，线程间共享进程的所有资源，每个线程有自己的堆栈和局">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-13T13:32:30.462Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java基础之进程与线程">
+<meta name="twitter:description" content="java基础之进程与线程进程是资源（CPU、内存等）分配的基本单位，它是程序执行时的一个实例。程序运行时系统就会创建一个进程，并为它分配资源，然后把该进程放入进程就绪队列，进程调度器选中它的时候就会为它分配CPU时间，程序开始真正运行。  线程是程序执行时的最小单位，它是进程的一个执行流，是CPU调度和分派的基本单位，一个进程可以由很多个线程组成，线程间共享进程的所有资源，每个线程有自己的堆栈和局">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">MinHow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
                     <a href="/">
-                        <i class="fa fa-home"></i>首页
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
                     </a>
-                </li>
-                
-                
-                
-                <li class="">
+                    
                     <a href="/archives">
-                        <i class="fa fa-archive"></i>归档
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
                     </a>
-                </li>
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-list"></i>分类
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/categories/框架/">框架</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/架构/">架构</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/杂散/">杂散</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/linux/">linux</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/java基础/">java基础</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/categories">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-tags"></i>标签
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/tags/web/">web</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/soa/">soa</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/js/">js</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/tags">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                <li class="">
+                    
                     <a href="/about">
-                        <i class="fa fa-user"></i>给我留言
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
                     </a>
-                </li>
-                
-                
-            </ul>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        MinHow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
         </div>
     </div>
 </header>
-    <div id="gal-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="https://zymmx.github.io">木木夕</a>
-        >
-        <span>java基础之进程与线程</span>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-java基础之线程" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      java基础之进程与线程
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/java基础/">java基础</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-21
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
     </div>
-    <!-- 大型设备详细文章 -->
-    <div class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
-            </h1>
-        </div>
-        <div class="tag-article">
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
             
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/java/">java</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-11-21
-            </span>
-            
-        </div>
-    </div>
-    <!-- 小型设备详细文章 -->
-    <div class="visible-xs">
-        <center>
-            <div class="title-article">
-                <h4>
-                    <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
-                </h4>
-            </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2018-11-21
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/java/">java</a>
-                
-                
-                
-            </p>
-        </center>
-    </div>
-    <div class="content-article">
-        <h1 id="java基础之进程与线程"><a href="#java基础之进程与线程" class="headerlink" title="java基础之进程与线程"></a>java基础之进程与线程</h1><p><strong>进程</strong>是资源（CPU、内存等）分配的基本单位，它是程序执行时的一个实例。程序运行时系统就会创建一个进程，并为它分配资源，然后把该进程放入进程就绪队列，进程调度器选中它的时候就会为它分配CPU时间，程序开始真正运行。 </p>
+            <h1 id="java基础之进程与线程"><a href="#java基础之进程与线程" class="headerlink" title="java基础之进程与线程"></a>java基础之进程与线程</h1><p><strong>进程</strong>是资源（CPU、内存等）分配的基本单位，它是程序执行时的一个实例。程序运行时系统就会创建一个进程，并为它分配资源，然后把该进程放入进程就绪队列，进程调度器选中它的时候就会为它分配CPU时间，程序开始真正运行。 </p>
 <p><strong>线程</strong>是程序执行时的最小单位，它是进程的一个执行流，是CPU调度和分派的基本单位，一个进程可以由很多个线程组成，线程间共享进程的所有资源，每个线程有自己的堆栈和局部变量。线程由CPU独立调度执行，在多CPU环境下就允许多个线程同时运行。同样多线程也可以实现并发操作，每个请求分配一个线程来处理。 </p>
 <h3 id="线程和进程各自有什么区别和优劣呢？"><a href="#线程和进程各自有什么区别和优劣呢？" class="headerlink" title="线程和进程各自有什么区别和优劣呢？"></a>线程和进程各自有什么区别和优劣呢？</h3><ul>
 <li>进程是资源分配的最小单位，线程是程序执行的最小单位。</li>
@@ -295,325 +203,293 @@
 </li>
 </ol>
 <h4 id="六：线程池"><a href="#六：线程池" class="headerlink" title="六：线程池"></a>六：线程池</h4>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年07月13日 21:32</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/21/java基础之线程/" title="java基础之进程与线程">https://zymmx.github.io/2018/11/21/java基础之线程/</a></p>
+        <footer>
+            <a href="https://zymmx.github.io">
+                <img src="/images/logo.png" alt="木木夕">
+                木木夕
+            </a>
+        </footer>
     </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://zymmx.github.io/2018/11/21/java基础之线程/&title=《java基础之进程与线程》 — 木木夕&pic=https://zymmx.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zymmx.github.io/2018/11/21/java基础之线程/&title=《java基础之进程与线程》 — 木木夕&source=如梦江湖 如戏人生" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://zymmx.github.io/2018/11/21/java基础之线程/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java基础之进程与线程》 — 木木夕&url=https://zymmx.github.io/2018/11/21/java基础之线程/&via=https://zymmx.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://zymmx.github.io/2018/11/21/java基础之线程/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://zymmx.github.io/2018/11/21/java基础之线程/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/java/" class="color5">java</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
 </article>
 
 
-<div id="comments-template"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script>
-	if(!window.commentConfig) {
-      window.commentConfig = {}
-      window.commentConfig.title = 'java基础之进程与线程'
-    }
-</script>
-
-                </div>
-                <aside class="col-md-4 gal-left" id="sidebar">
-    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
-<aside id="sidebar-search">
-    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
-            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
-            <button class="btn btn-danger btn-gal" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
-    </div>
-</aside>
-    <aside id="sidebar-author">
-    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
-        <div class="panel-heading" style="text-align: center">
-            <i class="fa fa-quote-left"></i>
-            木木夕
-            <i class="fa fa-quote-right"></i>
-        </div>
-        <div class="author-panel text-center">
-            <img src="/imgs/avatar.jpg" width="140" height="140" alt="个人头像" class="author-image">
-            <p class="author-description"></p><p>如梦江湖 如戏人生</p>
-<p></p>
-        </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
-    </div>
-</aside>
-    
-    <!-- 要配置好leancloud才能开启此小工具 -->
-    
-    
-    <aside id="sidebar-recent_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            近期文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/22/hexo + github 搭建个人博客/">hexo + github 搭建个人博客</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Node.js安装及环境变量配置/">Node.js安装及环境变量配置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/AngularJS/">AngularJS入门</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Dubbox/">Dubbox+Zookeeper入门</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Web Service工作原理及实例/">Web Service工作原理及实例</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/hello-world/">Hello World</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/AngularJS/">AngularJS入门</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Dubbox/">Dubbox+Zookeeper入门</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/hello-world/">Hello World</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Node.js安装及环境变量配置/">Node.js安装及环境变量配置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/22/hexo + github 搭建个人博客/">hexo + github 搭建个人博客</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Web Service工作原理及实例/">Web Service工作原理及实例</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    <aside id="gal-sets">
-        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-            <ul class="nav nav-pills pills-gal">
-                <li class="">
-                    <a href="/2018/11/21/java基础之线程/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
-                </li>
-                <li class="">
-                    <a href="/2018/11/21/java基础之线程/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
-                </li>
-                <li class="">
-                    <a href="/2018/11/21/java基础之线程/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
-    
-    <a href="/tags/web/" style="font-size: 13.057958341578438px;" class="tag-cloud-link">web</a>
-    
-    <a href="/tags/soa/" style="font-size: 15.969260267810938px;" class="tag-cloud-link">soa</a>
-    
-    <a href="/tags/js/" style="font-size: 12.738094896153608px;" class="tag-cloud-link">js</a>
-    
-    <a href="/tags/hexo/" style="font-size: 17.24497971299077px;" class="tag-cloud-link">hexo</a>
-    
-    <a href="/tags/linux/" style="font-size: 13.129033753779467px;" class="tag-cloud-link">linux</a>
-    
-    <a href="/tags/java/" style="font-size: 13.129649977037532px;" class="tag-cloud-link">java</a>
-    
-    <a href="/tags/webservice/" style="font-size: 10.552476117887206px;" class="tag-cloud-link">webservice</a>
-    
-</div>
-                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
-    
-    <li>
-        <a href="https://www.baidu.com/" target="_blank">百度</a>
-    </li>
-    
-</div>
-                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
-    
-    <li>
-        <a href="https://github.com/zymmx" target="_blank">Github</a>
-    </li>
-    
-</div>
-            </div>
-        </div>
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#java基础之进程与线程"><span class="post-toc-text">java基础之进程与线程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#线程和进程各自有什么区别和优劣呢？"><span class="post-toc-text">线程和进程各自有什么区别和优劣呢？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#线程必会"><span class="post-toc-text">线程必会</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#一：基本方法"><span class="post-toc-text">一：基本方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#二：每个对象都有的方法"><span class="post-toc-text">二：每个对象都有的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三：死锁"><span class="post-toc-text">三：死锁</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#四：ThreadLocal"><span class="post-toc-text">四：ThreadLocal</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#五：线程的状态"><span class="post-toc-text">五：线程的状态</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#六：线程池"><span class="post-toc-text">六：线程池</span></a></li></ol></li></ol>
+        </nav>
     </aside>
     
-</aside>
-            </div>
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/21/Dubbox/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Dubbox+Zookeeper入门
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/21/Web Service工作原理及实例/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Web Service工作原理及实例</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 木木夕<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://zymmx.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/java基础/">java基础</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/服务/">服务</a><a class="category-link" href="/categories/杂散/">杂散</a><a class="category-link" href="/categories/架构/">架构</a><a class="category-link" href="/categories/框架/">框架</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/soa/" style="font-size: 10px;">soa</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/webservice/" style="font-size: 10px;">webservice</a>
         </div>
     </div>
-    <footer id="gal-footer">
-    <div class="container">
-        Copyright © 2018 木木夕 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/zymmx" target="_blank">zymmx</a>
-    </div>
-</footer>
-
-<!-- 回到顶端 -->
-<div id="gal-gotop">
-    <i class="fa fa-angle-up"></i>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
 </div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/soa/" style="font-size: 10px;">soa</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/webservice/" style="font-size: 10px;">webservice</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
 </body>
-<script src="/js/activate-power-mode.js"></script>
-<script>
-
-    // 配置highslide
-	hs.graphicsDir = '/js/highslide/graphics/'
-    hs.outlineType = "rounded-white";
-    hs.dimmingOpacity = 0.8;
-    hs.outlineWhileAnimating = true;
-    hs.showCredits = false;
-    hs.captionEval = "this.thumb.alt";
-    hs.numberPosition = "caption";
-    hs.align = "center";
-    hs.transitions = ["expand", "crossfade"];
-    hs.lang.number = '共%2张图, 当前是第%1张';
-    hs.addSlideshow({
-      interval: 5000,
-      repeat: true,
-      useControls: true,
-      fixedControls: "fit",
-      overlayOptions: {
-        opacity: 0.75,
-        position: "bottom center",
-        hideOnMouseOut: true
-      }
-    })
-
-    // 初始化aos
-    AOS.init({
-      duration: 1000,
-      delay: 0,
-      easing: 'ease-out-back'
-    });
-
-</script>
-<script>
-	POWERMODE.colorful = 'true';    // make power mode colorful
-	POWERMODE.shake = 'true';       // turn off shake
-	// TODO 这里根据具体情况修改
-	document.body.addEventListener('input', POWERMODE);
-</script>
-<script>
-    window.slideConfig = {
-      prefix: '/imgs/slide/background',
-      ext: 'jpg',
-      maxCount: ''
-    }
-</script>
-<script src="/js/hs.js"></script>
-<script src="/js/blog.js"></script>
-
-
-
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    if(window.commentConfig) {
-      window.commentConfig.id = 'Wed Nov 21 2018 17:56:42 GMT+0800'
-      window.commentConfig.owner = 'zymmx'
-      window.commentConfig.repo = 'zymmx.github.io'
-      window.commentConfig.client_id = 'f0c3abbed1ec9ec406a3'
-      window.commentConfig.client_secret = '853f7d0decff3788a86a34bd5999292c525d7fa8'
-      window.commentConfig.redirect_uri = ''
-    } else {
-      window.commentConfig = {
-      	id: 'Wed Nov 21 2018 17:56:42 GMT+0800',
-        owner: 'zymmx',
-        repo: 'zymmx.github.io',
-        client_id: 'f0c3abbed1ec9ec406a3',
-        client_secret: '853f7d0decff3788a86a34bd5999292c525d7fa8',
-        redirect_uri: ''
-      }
-    }
-</script>
-<script src="/js/comment/gitment.js"></script>
-
 </html>

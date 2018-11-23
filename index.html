@@ -1,1219 +1,750 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="木木夕">
-    
-    <meta name="description" content="如梦江湖 如戏人生">
-    
-    
-    
-    
-    
-    
-    <title>木木夕</title>
-    <link href="”https://zymmx.github.io“" rel="”prefetch”">
-
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/aos.css">
-<link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aos.js"></script>
-    <script src="/js/highslide/highslide-full.min.js"></script>
-    <link rel="stylesheet" href="/js/highslide/highslide.css">
-    <style type="text/css">
-        @media (max-width: 768px) {
-            body {
-                background-color: #f0f0f0;
-                background: url('/imgs/xsbg.gif');
-                background-attachment: fixed;
-            }
-        }
-    </style>
-    
-    <!--<script type="text/javascript">
-      if (document.images) {
-        var avatar = new Image();
-        avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg'.split(',')
-        var previewsPreLoad = []
-        for(var i = 0; i < length; i++) {
-          previewsPreLoad.push(new Image())
-          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
-        }
-      }
-    </script>-->
-</head></html>
-<body>
-    <!-- 背景轮播图功能 -->
-    <section class="hidden-xs">
+  <meta charset="utf-8">
   
-</section>
-    <!-- 欧尼酱功能, 谁用谁知道 -->
-    
-    <header class="navbar navbar-inverse" id="gal-header">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
-                <span class="fa fa-lg fa-reorder"></span>
-            </button>
-            <a href="https://zymmx.github.io">
-                
-                <style>
-                    #gal-header .navbar-brand {
-                        height: 54px;
-                        line-height: 24px;
-                        font-size: 28px;
-                        opacity: 1;
-                        background-color: rgba(0,0,0,0);
-                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
-                    }
-                </style>
-                <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">木木夕</div>
-                
-            </a>
-        </div>
-        <div class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav" id="menu-gal">
-                
-                
-                <li class="current">
+  <title>木木夕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog">
+  
+  <meta name="description" content="如梦江湖 如戏人生">
+<meta property="og:type" content="website">
+<meta property="og:title" content="木木夕">
+<meta property="og:url" content="https://zymmx.github.io/index.html">
+<meta property="og:site_name" content="木木夕">
+<meta property="og:description" content="如梦江湖 如戏人生">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="木木夕">
+<meta name="twitter:description" content="如梦江湖 如戏人生">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">MinHow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
                     <a href="/">
-                        <i class="fa fa-home"></i>首页
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
                     </a>
-                </li>
-                
-                
-                
-                <li class="">
+                    
                     <a href="/archives">
-                        <i class="fa fa-archive"></i>归档
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
                     </a>
-                </li>
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-list"></i>分类
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/categories/框架/">框架</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/架构/">架构</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/杂散/">杂散</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/linux/">linux</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/java基础/">java基础</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/categories">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-tags"></i>标签
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/tags/web/">web</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/soa/">soa</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/js/">js</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/tags">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                <li class="">
+                    
                     <a href="/about">
-                        <i class="fa fa-user"></i>给我留言
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
                     </a>
-                </li>
-                
-                
-            </ul>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        MinHow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
         </div>
     </div>
 </header>
-    <div id="gal-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 gal-right" id="mainstay">
-                    
-<div class="alert well fade in" id="gal-issue" role="alert">
-    <!-- TODO 添加关闭公告框功能 -->
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <!-- 这里自行配置公告内容 -->
-    o(≥v≤)o
-    <br>
-    <h3><strong>Welcome to my blog</strong></h3>
-    <!-- 自行配置公告内容结束 -->
-</div>
+      <div class="outer">
+        <section id="main" class="body-wrap">
+  
+    <article id="post-hexo + github 搭建个人博客" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/22/hexo + github 搭建个人博客/">hexo + github 搭建个人博客</a>
+    </h1>
+  
 
-<div id="article-list">
-     
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/杂散/">杂散</a>
+                  
+              </span>
+          
+      </header>
     
-    <div class="data-article hidden-xs">
-        <span class="month">11月</span>
-        <span class="day">22</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/11/22/hexo + github 搭建个人博客/">
-                    <span>hexo + github 搭建个人博客</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/11/22/hexo + github 搭建个人博客/">
                 
-                <a href="/tags/hexo/">hexo</a>
+                <img src="https://zymmx.github.io/images/banner.jpg" alt="hexo + github 搭建个人博客" title="hexo + github 搭建个人博客">
                 
-            </span>
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2018/11/22/hexo + github 搭建个人博客/#comments">739</a>
-            </span>-->
+            </a>
         </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2018/11/22/hexo + github 搭建个人博客/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview2.jpg" alt="hexo + github 搭建个人博客">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2018/11/22/hexo + github 搭建个人博客/">
-                        <span>hexo + github 搭建个人博客</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2018-11-22
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            <i class="fa fa-tags"></i>
-            
-            <a href="/tags/hexo/">hexo</a>
-            
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2018/11/22/hexo + github 搭建个人博客/">
-                    
-                    <img src="/imgs/preview/preview6.jpg" alt="hexo + github 搭建个人博客">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/11/22/hexo + github 搭建个人博客/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">11月</span>
-        <span class="day">21</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/11/21/Node.js安装及环境变量配置/">
-                    <span>Node.js安装及环境变量配置</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/js/">js</a>
-                
-            </span>
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2018/11/21/Node.js安装及环境变量配置/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2018/11/21/Node.js安装及环境变量配置/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview5.jpg" alt="Node.js安装及环境变量配置">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2018/11/21/Node.js安装及环境变量配置/">
-                        <span>Node.js安装及环境变量配置</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2018-11-21
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            <i class="fa fa-tags"></i>
-            
-            <a href="/tags/js/">js</a>
-            
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2018/11/21/Node.js安装及环境变量配置/">
-                    
-                    <img src="/imgs/preview/preview3.jpg" alt="Node.js安装及环境变量配置">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/11/21/Node.js安装及环境变量配置/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">11月</span>
-        <span class="day">21</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/11/21/虚拟机安装及相关环境配置/">
-                    <span>虚拟机安装及相关环境配置</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/linux/">linux</a>
-                
-            </span>
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2018/11/21/虚拟机安装及相关环境配置/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2018/11/21/虚拟机安装及相关环境配置/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview7.jpg" alt="虚拟机安装及相关环境配置">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2018/11/21/虚拟机安装及相关环境配置/">
-                        <span>虚拟机安装及相关环境配置</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2018-11-21
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            <i class="fa fa-tags"></i>
-            
-            <a href="/tags/linux/">linux</a>
-            
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2018/11/21/虚拟机安装及相关环境配置/">
-                    
-                    <img src="/imgs/preview/preview7.jpg" alt="虚拟机安装及相关环境配置">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/11/21/虚拟机安装及相关环境配置/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">11月</span>
-        <span class="day">21</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/11/21/AngularJS/">
-                    <span>AngularJS入门</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/web/">web</a>
-                
-            </span>
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2018/11/21/AngularJS/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2018/11/21/AngularJS/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview1.jpg" alt="AngularJS入门">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2018/11/21/AngularJS/">
-                        <span>AngularJS入门</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2018-11-21
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            <i class="fa fa-tags"></i>
-            
-            <a href="/tags/web/">web</a>
-            
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2018/11/21/AngularJS/">
-                    
-                    <img src="/imgs/preview/preview1.jpg" alt="AngularJS入门">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/11/21/AngularJS/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">11月</span>
-        <span class="day">21</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/11/21/Dubbox/">
-                    <span>Dubbox+Zookeeper入门</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/soa/">soa</a>
-                
-            </span>
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2018/11/21/Dubbox/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2018/11/21/Dubbox/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview1.jpg" alt="Dubbox+Zookeeper入门">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2018/11/21/Dubbox/">
-                        <span>Dubbox+Zookeeper入门</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2018-11-21
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            <i class="fa fa-tags"></i>
-            
-            <a href="/tags/soa/">soa</a>
-            
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2018/11/21/Dubbox/">
-                    
-                    <img src="/imgs/preview/preview3.jpg" alt="Dubbox+Zookeeper入门">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/11/21/Dubbox/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">11月</span>
-        <span class="day">21</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/11/21/java基础之线程/">
-                    <span>java基础之进程与线程</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/java/">java</a>
-                
-            </span>
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2018/11/21/java基础之线程/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2018/11/21/java基础之线程/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview2.jpg" alt="java基础之进程与线程">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2018/11/21/java基础之线程/">
-                        <span>java基础之进程与线程</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2018-11-21
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            <i class="fa fa-tags"></i>
-            
-            <a href="/tags/java/">java</a>
-            
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2018/11/21/java基础之线程/">
-                    
-                    <img src="/imgs/preview/preview5.jpg" alt="java基础之进程与线程">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/11/21/java基础之线程/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">11月</span>
-        <span class="day">21</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/11/21/Web Service工作原理及实例/">
-                    <span>Web Service工作原理及实例</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/webservice/">webservice</a>
-                
-            </span>
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2018/11/21/Web Service工作原理及实例/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2018/11/21/Web Service工作原理及实例/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview3.jpg" alt="Web Service工作原理及实例">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2018/11/21/Web Service工作原理及实例/">
-                        <span>Web Service工作原理及实例</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2018-11-21
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            <i class="fa fa-tags"></i>
-            
-            <a href="/tags/webservice/">webservice</a>
-            
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2018/11/21/Web Service工作原理及实例/">
-                    
-                    <img src="/imgs/preview/preview1.jpg" alt="Web Service工作原理及实例">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/11/21/Web Service工作原理及实例/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">11月</span>
-        <span class="day">21</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/11/21/hello-world/">
-                    <span>Hello World</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2018/11/21/hello-world/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2018/11/21/hello-world/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview4.jpg" alt="Hello World">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2018/11/21/hello-world/">
-                        <span>Hello World</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2018-11-21
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2018/11/21/hello-world/">
-                    
-                    <img src="/imgs/preview/preview3.jpg" alt="Hello World">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/11/21/hello-world/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-</div>
-<!-- 前方最多7个 < 1 2 3 4 5 6 -->
-<!-- 前方超过第7页则分为 < 1 ... (n - 3) (n - 2) (n - 1) n, 此时前面为固定的6个 -->
+        <div class="article-feed">
+            <p>
+                hexo + github 搭建个人博客（基础篇）前言：电脑系统为window 10专业版，64位 
+相关步骤：
+1、安装Node.js和配置好Node.js环境，打开cmd命令行，成功界面如下
 
-<!-- 后方最多8个 (n + 1) 到 (n + 7) > -->
-<!-- 如果末页和当前页相差超过7, 此时后面为固定的6个, (n + 1) (n + 2) (n + 3) ... total > -->
+ 2、安装Git和配置好Git环境，安装成功的象征就是在电脑上任何位置鼠标右键能够出现如下两个选择
+ 
+注意：一般出于安全考虑，只有在Git Bash Here中才能进行Git...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-11-22</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/hexo/" class="color5">hexo</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/11/22/hexo + github 搭建个人博客/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
 
 
+  
+    <article id="post-Node.js安装及环境变量配置" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/21/Node.js安装及环境变量配置/">Node.js安装及环境变量配置</a>
+    </h1>
+  
 
-<div id="gal-pagination" class="clearfix">
-    <ul class="pagination pagination-gal pull-right">
-        
-        
-        
-        
-        <li class="current">
-            <span>1</span>
-        </li>
-        
-        
-        
-        
-    </ul>
-</div>
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/杂散/">杂散</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/11/21/Node.js安装及环境变量配置/">
+                
+                <img src="https://zymmx.github.io/images/banner.jpg" alt="Node.js安装及环境变量配置" title="Node.js安装及环境变量配置">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                Node.js安装及环境变量配置傻瓜式安装，注意选择保存的路径
 
-                </div>
-                <aside class="col-md-4 gal-left" id="sidebar">
-    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
-<aside id="sidebar-search">
-    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
-            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
-            <button class="btn btn-danger btn-gal" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
+此处说明下：新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装/卸载Node.js需要装的东西 
+说明：这里的环境配置主要配置的是npm安装的全局模块所在的路径，以及缓存cache的路径，之所以要配置，是因为以后在执行类似...
+            </p>
+        </div>
+      
+        
     </div>
-</aside>
-    <aside id="sidebar-author">
-    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
-        <div class="panel-heading" style="text-align: center">
-            <i class="fa fa-quote-left"></i>
-            木木夕
-            <i class="fa fa-quote-right"></i>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-11-21</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/js/" class="color3">js</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/11/21/Node.js安装及环境变量配置/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-虚拟机安装及相关环境配置" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/linux/">linux</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/11/21/虚拟机安装及相关环境配置/">
+                
+                <img src="https://zymmx.github.io/images/banner.jpg" alt="虚拟机安装及相关环境配置" title="虚拟机安装及相关环境配置">
+                
+            </a>
         </div>
-        <div class="author-panel text-center">
-            <img src="/imgs/avatar.jpg" width="140" height="140" alt="个人头像" class="author-image">
-            <p class="author-description"></p><p>如梦江湖 如戏人生</p>
-<p></p>
+        <div class="article-feed">
+            <p>
+                虚拟机安装及相关环境配置一：虚拟机安装123456789101112131415161718192021222324252627傻瓜式安装注意断开可移动设备中的cd/dvdsu root命令是切换到root用户passwd 空格 回车是修改密码如果是ssh访问的是别的电脑上的虚拟机，需要将虚拟机的网络设置成桥接ervice sshd status命令查看sshd服务的运行...
+            </p>
         </div>
+      
+        
     </div>
-</aside>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-11-21</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/linux/" class="color1">linux</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/11/21/虚拟机安装及相关环境配置/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-AngularJS" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/21/AngularJS/">AngularJS入门</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/框架/">框架</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/11/21/AngularJS/">
+                
+                <img src="https://zymmx.github.io/images/banner.jpg" alt="AngularJS入门" title="AngularJS入门">
+                
+            </a>
         </div>
-        <ul class="list-group list-group-flush"></ul>
+        <div class="article-feed">
+            <p>
+                AngularJS四大特征MVC:
+Model:数据,其实就是angular变量($scope.XX);
+View: 数据的呈现,Html+Directive(指令);
+Controller:操作数据,就是function,数据的增删改查;
+双向绑定：声明式编程应该用于构建用户界面以及编写软件构建，而指令式编程非常适合来表示业务逻辑。框架采用并扩展了传统HTML，通过双向...
+            </p>
+        </div>
+      
+        
     </div>
-</aside>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-11-21</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/web/" class="color4">web</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/11/21/AngularJS/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-Dubbox" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    <!-- 要配置好leancloud才能开启此小工具 -->
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/21/Dubbox/">Dubbox+Zookeeper入门</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/架构/">架构</a>
+                  
+              </span>
+          
+      </header>
     
-    
-    <aside id="sidebar-recent_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            近期文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/11/21/Dubbox/">
+                
+                <img src="https://zymmx.github.io/images/banner.jpg" alt="Dubbox+Zookeeper入门" title="Dubbox+Zookeeper入门">
+                
+            </a>
         </div>
-        <ul class="list-group list-group-flush">
+        <div class="article-feed">
+            <p>
+                DubboxDubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。 
+Dubbox 致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，dubbox就是个服务...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/22/hexo + github 搭建个人博客/">hexo + github 搭建个人博客</a>
-                </span>
-            </li>
+                <li><i class="fa fa-calendar"></i>2018-11-21</li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Node.js安装及环境变量配置/">Node.js安装及环境变量配置</a>
-                </span>
-            </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
-                </span>
-            </li>
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/soa/" class="color4">soa</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/11/21/Dubbox/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-java基础之线程" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/java基础/">java基础</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/11/21/java基础之线程/">
+                
+                <img src="https://zymmx.github.io/images/banner.jpg" alt="java基础之进程与线程" title="java基础之进程与线程">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                java基础之进程与线程进程是资源（CPU、内存等）分配的基本单位，它是程序执行时的一个实例。程序运行时系统就会创建一个进程，并为它分配资源，然后把该进程放入进程就绪队列，进程调度器选中它的时候就会为它分配CPU时间，程序开始真正运行。 
+线程是程序执行时的最小单位，它是进程的一个执行流，是CPU调度和分派的基本单位，一个进程可以由很多个线程组成，线程间共享进程的所有资源...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/AngularJS/">AngularJS入门</a>
-                </span>
-            </li>
+                <li><i class="fa fa-calendar"></i>2018-11-21</li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Dubbox/">Dubbox+Zookeeper入门</a>
-                </span>
-            </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
-                </span>
-            </li>
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/java/" class="color5">java</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/11/21/java基础之线程/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-Web Service工作原理及实例" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/21/Web Service工作原理及实例/">Web Service工作原理及实例</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/服务/">服务</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/11/21/Web Service工作原理及实例/">
+                
+                <img src="https://zymmx.github.io/images/banner.jpg" alt="Web Service工作原理及实例" title="Web Service工作原理及实例">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                Web Service工作原理及实例一、Web Service基本概念
+Web Service也叫XML Web Service WebService是一种可以接收从Internet或者Intranet上的其它系统中传递过来的请求，*轻量级的独立的通讯技术*。是:通过SOAP在Web上提供的软件服务，使用WSDL文件进行说明，并通过UDDI进行注册。 
+
+XML：(Ext...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Web Service工作原理及实例/">Web Service工作原理及实例</a>
-                </span>
-            </li>
+                <li><i class="fa fa-calendar"></i>2018-11-21</li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/hello-world/">Hello World</a>
-                </span>
-            </li>
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/webservice/" class="color1">webservice</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/11/21/Web Service工作原理及实例/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/21/hello-world/">Hello World</a>
+    </h1>
+  
+
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/11/21/hello-world/">
+                
+                <img src="https://zymmx.github.io/images/banner.jpg" alt="Hello World" title="Hello World">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on ...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-11-21</li>
+            
             
         </ul>
+        
+            <a href="/2018/11/21/hello-world/#more" class="article-more-link">more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 木木夕<br>
+      </p>
     </div>
-</aside>
-    
-    
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/AngularJS/">AngularJS入门</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Dubbox/">Dubbox+Zookeeper入门</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/hello-world/">Hello World</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Node.js安装及环境变量配置/">Node.js安装及环境变量配置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/22/hexo + github 搭建个人博客/">hexo + github 搭建个人博客</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/21/Web Service工作原理及实例/">Web Service工作原理及实例</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    <aside id="gal-sets">
-        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-            <ul class="nav nav-pills pills-gal">
-                <li class="">
-                    <a href="/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
-                </li>
-                <li class="">
-                    <a href="/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
-                </li>
-                <li class="">
-                    <a href="/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
-    
-    <a href="/tags/web/" style="font-size: 17.425539253970943px;" class="tag-cloud-link">web</a>
-    
-    <a href="/tags/soa/" style="font-size: 10.946551112202656px;" class="tag-cloud-link">soa</a>
-    
-    <a href="/tags/js/" style="font-size: 8.587261317259392px;" class="tag-cloud-link">js</a>
-    
-    <a href="/tags/hexo/" style="font-size: 19.593568362389604px;" class="tag-cloud-link">hexo</a>
-    
-    <a href="/tags/linux/" style="font-size: 11.042259740090143px;" class="tag-cloud-link">linux</a>
-    
-    <a href="/tags/java/" style="font-size: 16.39256989694705px;" class="tag-cloud-link">java</a>
-    
-    <a href="/tags/webservice/" style="font-size: 15.958207520284681px;" class="tag-cloud-link">webservice</a>
-    
-</div>
-                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
-    
-    <li>
-        <a href="https://www.baidu.com/" target="_blank">百度</a>
-    </li>
-    
-</div>
-                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
-    
-    <li>
-        <a href="https://github.com/zymmx" target="_blank">Github</a>
-    </li>
-    
-</div>
-            </div>
-        </div>
-    </aside>
-    
-</aside>
-            </div>
-        </div>
-    </div>
-    <footer id="gal-footer">
-    <div class="container">
-        Copyright © 2018 木木夕 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/zymmx" target="_blank">zymmx</a>
-    </div>
+  </div>
 </footer>
-
-<!-- 回到顶端 -->
-<div id="gal-gotop">
-    <i class="fa fa-angle-up"></i>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://zymmx.github.io",
+      animate: true,
+      isHome: true,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
 </div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/java基础/">java基础</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/服务/">服务</a><a class="category-link" href="/categories/杂散/">杂散</a><a class="category-link" href="/categories/架构/">架构</a><a class="category-link" href="/categories/框架/">框架</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/soa/" style="font-size: 10px;">soa</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/webservice/" style="font-size: 10px;">webservice</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/soa/" style="font-size: 10px;">soa</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/webservice/" style="font-size: 10px;">webservice</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  </div>
 </body>
-<script src="/js/activate-power-mode.js"></script>
-<script>
-
-    // 配置highslide
-	hs.graphicsDir = '/js/highslide/graphics/'
-    hs.outlineType = "rounded-white";
-    hs.dimmingOpacity = 0.8;
-    hs.outlineWhileAnimating = true;
-    hs.showCredits = false;
-    hs.captionEval = "this.thumb.alt";
-    hs.numberPosition = "caption";
-    hs.align = "center";
-    hs.transitions = ["expand", "crossfade"];
-    hs.lang.number = '共%2张图, 当前是第%1张';
-    hs.addSlideshow({
-      interval: 5000,
-      repeat: true,
-      useControls: true,
-      fixedControls: "fit",
-      overlayOptions: {
-        opacity: 0.75,
-        position: "bottom center",
-        hideOnMouseOut: true
-      }
-    })
-
-    // 初始化aos
-    AOS.init({
-      duration: 1000,
-      delay: 0,
-      easing: 'ease-out-back'
-    });
-
-</script>
-<script>
-	POWERMODE.colorful = 'true';    // make power mode colorful
-	POWERMODE.shake = 'true';       // turn off shake
-	// TODO 这里根据具体情况修改
-	document.body.addEventListener('input', POWERMODE);
-</script>
-<script>
-    window.slideConfig = {
-      prefix: '/imgs/slide/background',
-      ext: 'jpg',
-      maxCount: ''
-    }
-</script>
-<script src="/js/hs.js"></script>
-<script src="/js/blog.js"></script>
-
-
-
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    if(window.commentConfig) {
-      window.commentConfig.id = ''
-      window.commentConfig.owner = 'zymmx'
-      window.commentConfig.repo = 'zymmx.github.io'
-      window.commentConfig.client_id = 'f0c3abbed1ec9ec406a3'
-      window.commentConfig.client_secret = '853f7d0decff3788a86a34bd5999292c525d7fa8'
-      window.commentConfig.redirect_uri = ''
-    } else {
-      window.commentConfig = {
-      	id: '',
-        owner: 'zymmx',
-        repo: 'zymmx.github.io',
-        client_id: 'f0c3abbed1ec9ec406a3',
-        client_secret: '853f7d0decff3788a86a34bd5999292c525d7fa8',
-        redirect_uri: ''
-      }
-    }
-</script>
-<script src="/js/comment/gitment.js"></script>
-
 </html>
