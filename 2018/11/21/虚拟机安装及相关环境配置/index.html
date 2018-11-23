@@ -1,195 +1,570 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="木木夕">
+    
     <meta name="description" content="如梦江湖 如戏人生">
-    <meta name="keyword" content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+    
+    
+    
+    
+    <title>虚拟机安装及相关环境配置 | 木木夕</title>
+    <link href="”https://zymmx.github.io“" rel="”prefetch”">
 
-    <title>
-        
-        虚拟机安装及相关环境配置 - undefined
-        
-    </title>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
-</head>
-
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
 <body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i>  </i>
-</div>
-
-<div class="index-container">
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
     
-    <div class="index-left">
-        
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar">
-            <img src="/">
-        </div>
-        <div class="name">
-            <i>木木夕</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li>
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>HOME</span>
-                </a>
-            </li>
-            <li>
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>TAGS</span>
-                </a>
-            </li>
-            <li>
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>ARCHIVES</span>
-                </a>
-            </li>
-            <li>
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>ABOUT</span>
-                </a>
-            </li>
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://zymmx.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
             
-        </ul>
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
     </div>
-    
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#虚拟机安装及相关环境配置"><span class="toc-text">虚拟机安装及相关环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一：虚拟机安装"><span class="toc-text">一：虚拟机安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二：mysql安装"><span class="toc-text">二：mysql安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三：jdk安装"><span class="toc-text">三：jdk安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四：tomcat安装"><span class="toc-text">四：tomcat安装</span></a></li></ol></li></ol>
 </div>
     
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input">
-            <span id="begin-search">search</span>
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://zymmx.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">木木夕</div>
+                
+            </a>
         </div>
-        <div class="search-result-container" id="search-result-container">
-
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/框架/">框架</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/架构/">架构</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/java基础/">java基础</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/soa/">soa</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/java/">java</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
         </div>
     </div>
-</div>
-        <div class="index-about-mobile">
-            <i>  </i>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://zymmx.github.io">木木夕</a>
+        >
+        <span>虚拟机安装及相关环境配置</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/linux/">linux</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-11-21
+            </span>
+            
         </div>
     </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
-        
-
-
-<div class="post-container">
-    <div class="post-title">
-        虚拟机安装及相关环境配置
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-11-21
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/linux/">linux</a>
+                
+                
+                
+            </p>
+        </center>
     </div>
-
-    <div class="post-meta">
-        <span class="attr">Post：<span>2018-11-21 17:56:42</span></span>
-        
-        <span class="attr">Tags：/
-        
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
-</span>
-
-    </div>
-    <div class="post-content ">
+    <div class="content-article">
         <h4 id="虚拟机安装及相关环境配置"><a href="#虚拟机安装及相关环境配置" class="headerlink" title="虚拟机安装及相关环境配置"></a>虚拟机安装及相关环境配置</h4><h5 id="一：虚拟机安装"><a href="#一：虚拟机安装" class="headerlink" title="一：虚拟机安装"></a>一：虚拟机安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">傻瓜式安装</span><br><span class="line"></span><br><span class="line">注意断开可移动设备中的cd/dvd</span><br><span class="line"></span><br><span class="line">su root</span><br><span class="line">命令是切换到root用户</span><br><span class="line">passwd 空格 回车</span><br><span class="line">是修改密码</span><br><span class="line"></span><br><span class="line">如果是ssh访问的是别的电脑上的虚拟机，需要将虚拟机的网络设置成桥接</span><br><span class="line">ervice sshd status</span><br><span class="line">命令查看sshd服务的运行状态</span><br><span class="line">如果状态不是running</span><br><span class="line">使用命令启动</span><br><span class="line">service sshd start</span><br><span class="line"></span><br><span class="line">使用工具进行远程连接时，需要开放22端口</span><br><span class="line"></span><br><span class="line">使用iptables开放如下端口（如下开放22端口，其他类似）</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 22 -j ACCEPT</span><br><span class="line">保存</span><br><span class="line">/etc/rc.d/init.d/iptables save</span><br><span class="line">重启服务</span><br><span class="line">service iptables restart</span><br><span class="line"></span><br><span class="line">如果配置不成功，或者不想这么麻烦每个端口都配置，可以关闭防火墙</span><br><span class="line">关闭防火墙：service iptables stop</span><br></pre></td></tr></table></figure>
 <h5 id="二：mysql安装"><a href="#二：mysql安装" class="headerlink" title="二：mysql安装"></a>二：mysql安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">1.使用工具（xftp），将压缩包上传到usr/local/software下【usr/local无读写权限限制，software如没有可新建】</span><br><span class="line"></span><br><span class="line">2.解压，并重命名为mysql</span><br><span class="line">cd /usr/local/software</span><br><span class="line">tar -zxvf mysql-5.6.38-linux-glibc2.12-x86_64.tar.gz</span><br><span class="line"></span><br><span class="line">3.cd mysql进入解压后的目录</span><br><span class="line">执行下面的命令安装mysql:</span><br><span class="line">scripts/mysql_install_db --user=mysql --basedir=/usr/local/software/mysql --datadir=/usr/local/software/mysql/data</span><br><span class="line"></span><br><span class="line">4.执行vim my.cnf 编辑mysql配置文件，添加如下两行内容：</span><br><span class="line">basedir=/usr/local/software/mysql</span><br><span class="line">datadir=/usr/local/software/mysql/data</span><br><span class="line"></span><br><span class="line">5.执行vim /etc/my.cnf编辑文件，加入两行：</span><br><span class="line">basedir=/usr/local/software/mysql</span><br><span class="line">datadir=/usr/local/software/mysql/data</span><br><span class="line"></span><br><span class="line">6.执行命令cp support-files/mysql.server /etc/init.d/mysql，把启动脚本放到开机初始化目录</span><br><span class="line">启动mysql服务：执行命令service mysql start</span><br><span class="line">执行命令：ps -ef|grep mysql 看到mysql服务说明启动成功</span><br><span class="line"></span><br><span class="line">7.输入mysql 回车</span><br><span class="line">set password for root@localhost = password(&apos;root&apos;);</span><br><span class="line">修改root的密码</span><br><span class="line">退出输入quit</span><br><span class="line"></span><br><span class="line">8.再登录的时候报错：</span><br><span class="line">使用mysql –u 用户名 –p登录</span><br><span class="line">执行下面的命令，让root可以远程登录：</span><br><span class="line">grant all privileges on *.* to &apos;root&apos; @&apos;%&apos; identified by &apos;root&apos;;</span><br><span class="line"></span><br><span class="line">9.linux下的mysql默认是大小写敏感的，通过java操作数据库的时候会出现找不到表的情况，需要设置大小写不敏感</span><br><span class="line">vim /etc/my.cnf</span><br><span class="line">[mysqld]后添加添加lower_case_table_names=1</span><br></pre></td></tr></table></figure>
 <h5 id="三：jdk安装"><a href="#三：jdk安装" class="headerlink" title="三：jdk安装"></a>三：jdk安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">CentOS一般会自带两个jdk，使用命令查看：</span><br><span class="line">rpm -qa | grep java</span><br><span class="line">rpm -e --nodeps 要卸载的包 (包通过上面的指令可以获取到)]</span><br><span class="line">如：</span><br><span class="line">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.99-2.6.5.1.el6.x86_64</span><br><span class="line">rpm -e --nodeps java-1.6.0-openjdk-1.6.0.38-1.13.10.4.el6.x86_64</span><br><span class="line"></span><br><span class="line">将下载好的安装包上传到linux的/usr/local/software目录下</span><br><span class="line">执行tar -zxvf jdk-8u151-linux-x64.tar.gz命令解压文件</span><br><span class="line"></span><br><span class="line">配置环境变量</span><br><span class="line">vim /etc/profile</span><br><span class="line">在文件最末尾加上下面几句话：</span><br><span class="line">export JAVA_HOME=/usr/local/software/jdk1.8.0_151</span><br><span class="line">export JRE_HOME=/usr/local/software/jdk1.8.0_151/jre</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">保存退出</span><br><span class="line">让配置生效：</span><br><span class="line">source /etc/profile</span><br><span class="line">检查环境：</span><br><span class="line">运行java –version能看到版本信息</span><br></pre></td></tr></table></figure>
 <h5 id="四：tomcat安装"><a href="#四：tomcat安装" class="headerlink" title="四：tomcat安装"></a>四：tomcat安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">同上，上传并解压下载的tomcat</span><br><span class="line">进入tomcat解压路径的bin 目录</span><br><span class="line">运行 sh startup.sh启动tomcat</span><br><span class="line">浏览器里输入  服务器ip:8080能看到欢迎界面</span><br><span class="line"></span><br><span class="line">可以将tomcat安装成系统服务</span><br><span class="line">复制tomcat安装路径下的bin/catalina.sh作为系统服务脚本</span><br><span class="line">cp /usr/local/software/apache-tomcat-8.5.23/bin/catalina.sh /etc/init.d/tomcat    </span><br><span class="line">#重命名的tomcat为以后的服务名</span><br><span class="line">修改复制后的文件</span><br><span class="line">vim /etc/init.d/tomcat</span><br><span class="line">在文件比较靠前的位置，把jdk的安装路经和tomcat的安装路径设置进去</span><br><span class="line"></span><br><span class="line"># os specific support --------</span><br><span class="line"></span><br><span class="line">JAVA_HOME=/usr/local/software/jdk1.8.0_151</span><br><span class="line">CATALINA_HOME=/usr/local/software/apache-tomcat-8.5.23</span><br><span class="line"></span><br><span class="line">保存并退出，</span><br><span class="line">可以通过service tomcat stop或start来停止或启动tomcat</span><br></pre></td></tr></table></figure>
 
-        
-        <br>
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
-
-        <div id="lv-container">
-        </div>
-
     </div>
-</div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
     </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-
-        
-
-        
-
-        
-
-        
-
-    </ul>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            木木夕
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p><p>如梦江湖 如戏人生</p>
+<p></p>
+        </div>
+    </div>
+</aside>
     
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/22/hexo + github 搭建个人博客/">hexo + github 搭建个人博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Node.js安装及环境变量配置/">Node.js安装及环境变量配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/AngularJS/">AngularJS入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Dubbox/">Dubbox+Zookeeper入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Web Service工作原理及实例/">Web Service工作原理及实例</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/AngularJS/">AngularJS入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Dubbox/">Dubbox+Zookeeper入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Web Service工作原理及实例/">Web Service工作原理及实例</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Node.js安装及环境变量配置/">Node.js安装及环境变量配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/22/hexo + github 搭建个人博客/">hexo + github 搭建个人博客</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/11/21/虚拟机安装及相关环境配置/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/11/21/虚拟机安装及相关环境配置/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/11/21/虚拟机安装及相关环境配置/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/web/" style="font-size: 13.459928186589625px;" class="tag-cloud-link">web</a>
+    
+    <a href="/tags/soa/" style="font-size: 18.510781063267295px;" class="tag-cloud-link">soa</a>
+    
+    <a href="/tags/java/" style="font-size: 18.45587946203169px;" class="tag-cloud-link">java</a>
+    
+    <a href="/tags/linux/" style="font-size: 14.935053333703008px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/webservice/" style="font-size: 11.52306748824525px;" class="tag-cloud-link">webservice</a>
+    
+    <a href="/tags/hexo/" style="font-size: 19.013901069765005px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/js/" style="font-size: 11.184863044239153px;" class="tag-cloud-link">js</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 木木夕 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
 </footer>
 
-
-
-
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
 </body>
-
+<script src="/js/activate-power-mode.js"></script>
 <script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = ""
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 
