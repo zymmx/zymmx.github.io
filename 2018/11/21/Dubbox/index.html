@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Dubbox+Zookeeper入门 | 木木夕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="zymmx,zymmx's Blog">
+  
+  <meta name="description" content="DubboxDubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。  Dubbox 致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，dubbox就是个服务框架，如果没有分布式的需求">
+<meta name="keywords" content="soa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dubbox+Zookeeper入门">
+<meta property="og:url" content="https://zymmx.github.io/2018/11/21/Dubbox/index.html">
+<meta property="og:site_name" content="木木夕">
+<meta property="og:description" content="DubboxDubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。  Dubbox 致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，dubbox就是个服务框架，如果没有分布式的需求">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="c:/Users/LMH/AppData/Local/Temp/1531299014547.png">
+<meta property="og:updated_time" content="2018-07-14T06:05:25.255Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dubbox+Zookeeper入门">
+<meta name="twitter:description" content="DubboxDubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为Dubbox。  Dubbox 致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，dubbox就是个服务框架，如果没有分布式的需求">
+<meta name="twitter:image" content="c:/Users/LMH/AppData/Local/Temp/1531299014547.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">木木夕</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        木木夕
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        情深一寸伤多一分，如梦江湖如戏人生是我沉沦。
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Dubbox" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Dubbox+Zookeeper入门
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/架构/">架构</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-21
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="Dubbox"><a href="#Dubbox" class="headerlink" title="Dubbox"></a>Dubbox</h3><p>Dubbox 是一个分布式服务框架，其前身是阿里巴巴开源项目Dubbo ，被国内电商及互联网项目中使用，后期阿里巴巴停止了该项目的维护，当当网便在Dubbo基础上进行优化，并继续维护，为了与原有的Dubbo区分，故将其命名为<strong>Dubbox</strong>。 </p>
+<p>Dubbox 致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。简单的说，<strong>dubbox就是个服务框架</strong>，如果没有分布式的需求，其实是不需要用的，只有在分布式的时候，才有dubbox这样的分布式服务框架的需求，并且本质上是个服务调用的东东，<strong>说白了就是个远程服务调用的分布式框架</strong>。</p>
+<p><img src="C:\Users\LMH\AppData\Local\Temp\1531299014547.png" alt="1531299014547"></p>
+<p><strong>节点角色说明：</strong></p>
+<p> Provider: 暴露服务的服务提供方。</p>
+<p> Consumer: 调用远程服务的服务消费方。</p>
+<p> Registry: 服务注册与发现的注册中心。</p>
+<p> Monitor: 统计服务的调用次调和调用时间的监控中心。</p>
+<p> Container: 服务运行容器。</p>
+<p><strong>调用关系说明：</strong></p>
+<p> 0. 服务容器负责启动，加载，运行服务提供者。</p>
+<p> 1. 服务提供者在启动时，向注册中心注册自己提供的服务。</p>
+<p> 2. 服务消费者在启动时，向注册中心订阅自己所需的服务。</p>
+<p> 3. 注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推</p>
+<p>送变更数据给消费者。</p>
+<p> 4. 服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，</p>
+<p>如果调用失败，再选另一台调用。</p>
+<p> 5. 服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计</p>
+<p>数据到监控中心</p>
+<h3 id="注册中心Zookeeper"><a href="#注册中心Zookeeper" class="headerlink" title="注册中心Zookeeper"></a>注册中心Zookeeper</h3><p>官方推荐使用 zookeeper 注册中心。注册中心负责服务地址的注册与查找，相当于目录服务，服务提供者和消费者只在启动时与注册中心交互，注册中心不转发请求，压力较小。</p>
+<p>Zookeeper 是Apacahe Hadoop 的子项目，是一个树型的目录服务，支持变更推送，适合作为Dubbox 服务的注册中心，工业强度较高，可用于生产环境。</p>
+<h3 id="Zookeeper-在Linux系统的安装"><a href="#Zookeeper-在Linux系统的安装" class="headerlink" title="Zookeeper 在Linux系统的安装"></a>Zookeeper 在Linux系统的安装</h3><p>1：安装jdk</p>
+<p>2：上传安装包：Alt+P 进入SFTP ，输入put d:\zookeeper-3.4.6.tar.gz 上传 ；也可以直接用工具拖动上传</p>
+<p>3： 解压：tar -zxvf zookeeper-3.4.6.tar.gz </p>
+<p>4： 进入 zookeeper-3.4.6 目录，创建 data 文件夹 ：mkdir data</p>
+<p>5： 进入conf目录 ，把 zoo_sample.cfg 改名为 zoo.cfg  ：</p>
+<p>​        cd conf</p>
+<p>​        mv zoo_sample.cfg zoo.cfg</p>
+<p>6： 打开zoo.cfg ,  修改 data 属性：dataDir=/root/zookeeper-3.4.6/data （安装路径）</p>
+<p>7： 启动：进入bin里，执行启动程序 ：./zkServer.sh start</p>
+<h3 id="Dubbox本地-JAR包部署与安装"><a href="#Dubbox本地-JAR包部署与安装" class="headerlink" title="Dubbox本地 JAR包部署与安装"></a>Dubbox本地 JAR包部署与安装</h3><p>Dubbox的jar包并没有部署到Maven的中央仓库中，大家在Maven的中央仓库中可以查找到Dubbo的最终版本是2.5.3 , 阿里巴巴解散了Dubbo团队后由当当网继续维护此项目，并改名为 Dubbox ,坐标不变，版本变更了，但是并没有提交到中央仓库。</p>
+<p>我们现在需要手动将Dubbox的jar包安装到我的本地仓库中。</p>
+<p>先将dubbo-2.8.4.jar包放到d:\setup, 然后输入命令</p>
+<p>mvn install:install-file -Dfile=d:\setup\dubbo-2.8.4.jar -DgroupId=com.alibaba -DartifactId=dubbo -Dversion=2.8.4 -Dpackaging=jar </p>
+<p>Eclipse配置离线约束 (将dubbo.xsd文件配置上：windows —-&gt;preferences—–&gt;xml catalog)</p>
+<p><a href="http://code.alibabatech.com/schema/dubbo/dubbo.xsd" target="_blank" rel="noopener">http://code.alibabatech.com/schema/dubbo/dubbo.xsd</a> </p>
+<h3 id="管理中心的部署"><a href="#管理中心的部署" class="headerlink" title="管理中心的部署"></a>管理中心的部署</h3><p>我们在开发时，需要知道注册中心都注册了哪些服务，以便我们开发和测试。我们可以通过部署一个管理中心来实现。其实管理中心就是一个web应用，部署到tomcat即可。 </p>
+<p>管理端安装</p>
+<p>（1）编译源码，得到war包 </p>
+<p>我们有个dubbox-master.zip  ，这个是dubbox的源码，我们可以使用maven命令编译源码得到“管理端”的war包</p>
+<p>将此压缩包解压，在命令符下进入dubbo-admin目录 ，输入maven命令</p>
+<p>mvn package -Dmaven.skip.test=true </p>
+<p>（2）进入target文件夹，你会看到一个dubbo-admin-2.8.4.war ， 在linux服务器上安装tomcat,  将此war包上传到linux服务器的tomcat的webapps下。为了访问方便，你可以把版本号去掉。 启动tomcat后自动解压。 </p>
+<p>（3）如果你部署在zookeeper同一台主机并且端口是默认的2181，则无需修改任何配置。如果不是在一台主机上或端口被修改，需要修改WEB-INF下的dubbo.properties  ，修改如下配置： dubbo.registry.address=zookeeper://127.0.0.1:2181 </p>
+<p>（4）打开浏览器，输入http://部署的linux主机地址:8080/dubbo-admin/ ,登录用户名和密码均为root 进入首页。 </p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年07月14日 14:05</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/21/Dubbox/" title="Dubbox+Zookeeper入门">https://zymmx.github.io/2018/11/21/Dubbox/</a></p>
+        <footer>
+            <a href="https://zymmx.github.io">
+                <img src="/images/logo.png" alt="木木夕">
+                木木夕
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://zymmx.github.io/2018/11/21/Dubbox/&title=《Dubbox+Zookeeper入门》 — 木木夕&pic=https://zymmx.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zymmx.github.io/2018/11/21/Dubbox/&title=《Dubbox+Zookeeper入门》 — 木木夕&source=如梦江湖 如戏人生" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://zymmx.github.io/2018/11/21/Dubbox/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Dubbox+Zookeeper入门》 — 木木夕&url=https://zymmx.github.io/2018/11/21/Dubbox/&via=https://zymmx.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://zymmx.github.io/2018/11/21/Dubbox/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://zymmx.github.io/2018/11/21/Dubbox/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/soa/" class="color4">soa</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dubbox"><span class="post-toc-text">Dubbox</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注册中心Zookeeper"><span class="post-toc-text">注册中心Zookeeper</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Zookeeper-在Linux系统的安装"><span class="post-toc-text">Zookeeper 在Linux系统的安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dubbox本地-JAR包部署与安装"><span class="post-toc-text">Dubbox本地 JAR包部署与安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#管理中心的部署"><span class="post-toc-text">管理中心的部署</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/21/AngularJS/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          AngularJS入门
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/21/java基础之线程/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">java基础之进程与线程</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 木木夕<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://zymmx.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/java基础/">java基础</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/服务/">服务</a><a class="category-link" href="/categories/杂散/">杂散</a><a class="category-link" href="/categories/架构/">架构</a><a class="category-link" href="/categories/框架/">框架</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/soa/" style="font-size: 10px;">soa</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/webservice/" style="font-size: 10px;">webservice</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/soa/" style="font-size: 10px;">soa</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/webservice/" style="font-size: 10px;">webservice</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
