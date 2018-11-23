@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="木木夕">
+    
+    <meta name="description" content="如梦江湖 如戏人生">
+    
+    
+    
+    
+    
+    
+    <title>java基础之进程与线程 | 木木夕</title>
+    <link href="”https://zymmx.github.io“" rel="”prefetch”">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://zymmx.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://zymmx.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">木木夕</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/框架/">框架</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/架构/">架构</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/杂散/">杂散</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/web/">web</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/soa/">soa</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/js/">js</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://zymmx.github.io">木木夕</a>
+        >
+        <span>java基础之进程与线程</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-11-21
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-11-21
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="java基础之进程与线程"><a href="#java基础之进程与线程" class="headerlink" title="java基础之进程与线程"></a>java基础之进程与线程</h1><p><strong>进程</strong>是资源（CPU、内存等）分配的基本单位，它是程序执行时的一个实例。程序运行时系统就会创建一个进程，并为它分配资源，然后把该进程放入进程就绪队列，进程调度器选中它的时候就会为它分配CPU时间，程序开始真正运行。 </p>
+<p><strong>线程</strong>是程序执行时的最小单位，它是进程的一个执行流，是CPU调度和分派的基本单位，一个进程可以由很多个线程组成，线程间共享进程的所有资源，每个线程有自己的堆栈和局部变量。线程由CPU独立调度执行，在多CPU环境下就允许多个线程同时运行。同样多线程也可以实现并发操作，每个请求分配一个线程来处理。 </p>
+<h3 id="线程和进程各自有什么区别和优劣呢？"><a href="#线程和进程各自有什么区别和优劣呢？" class="headerlink" title="线程和进程各自有什么区别和优劣呢？"></a>线程和进程各自有什么区别和优劣呢？</h3><ul>
+<li>进程是资源分配的最小单位，线程是程序执行的最小单位。</li>
+<li>进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。</li>
+<li>线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以通信的方式（IPC)进行。不过如何处理好同步与互斥是编写多线程程序的难点。</li>
+<li>但是多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也死掉了，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</li>
+</ul>
+<h3 id="线程必会"><a href="#线程必会" class="headerlink" title="线程必会"></a>线程必会</h3><p>基本线程类指的是Thread类，Runnable接口，Callable接口 </p>
+<h5 id="一：基本方法"><a href="#一：基本方法" class="headerlink" title="一：基本方法"></a>一：基本方法</h5><p><strong>static void sleep(long millis)</strong> 在指定的毫秒数内让当前正在执行的线程暂停执行 ，该代码放在什么位置就在什么位置昏睡</p>
+<p><strong>static void yield()</strong>     暂停当前正在执行的线程对象，并执行其他线程 </p>
+<p>​            yield不一定会执行，有很多情况：</p>
+<p>​            1）如果所有的线程已经结束了，就剩下带有yeild方法</p>
+<p>​                的线程无法谦让</p>
+<p>​            2）谦让是让出时间片，不保证该线程接着又抢回来    </p>
+<p>​        因为该方法并不是强制性的，所以并不会抛出异常</p>
+<p><strong>void join()</strong>  等待该线程终止,谁调用就等待谁结束 ，地老天荒 </p>
+<p>​        此时的线程谦让一定成功，具有强制性</p>
+<p>​        使用哪个线程对象调用就把哪个线程合并到当前线程之前执行</p>
+<p><strong>static Thread currentThread()</strong>    返回对当前正在执行的线程对象的引用</p>
+<h4 id="二：每个对象都有的方法"><a href="#二：每个对象都有的方法" class="headerlink" title="二：每个对象都有的方法"></a><strong>二：</strong>每个对象都有的方法</h4><p>​    wait()、notify/notifyAll() 方法是Object的本地final方法，无法被重写 ，</p>
+<p>synchronized, wait, notify  是任何对象都具有的同步工具 </p>
+<p>当线程执行wait()方法时候，会释放当前的锁，然后让出CPU，进入等待状态。只有当 notify/notifyAll() 被执行时候，才会唤醒一个或多个正处于等待状态的线程，然后继续往下执行，直到执行完synchronized 代码块的代码或是中途遇到wait() ，再次释放锁。</p>
+<p>也就是说，notify/notifyAll() 的执行只是唤醒沉睡的线程，而不会立即释放锁，锁的释放要看代码块的具体执行情况。所以在编程中，尽量在使用了notify/notifyAll() 后立即退出临界区，以唤醒其他线程  </p>
+<p>要注意，notify唤醒沉睡的线程后，线程会接着上次的执行继续往下执行。所以在进行条件判断时候，可以先把 wait 语句忽略不计来进行考虑，显然，要确保程序一定要执行，并且要保证程序直到满足一定的条件再执行，要使用while来执行，以确保条件满足和一定执行 </p>
+<p>共同点：</p>
+<p>​        1）都需要在synchronized代码块里面执行，否则抛出异常        </p>
+<p>​        2）都是Object的方法，所以所有的线程锁对象都可以使用    </p>
+<p>​        3）都需要先获得这把锁才可以执行    </p>
+<p>​    区别：</p>
+<p>​        1）wait方法是使得当前线程对象处于等待状态，并且主动释放对象锁</p>
+<p>​            并且无法再次获得该锁    </p>
+<p>​        2）notify和notifyAll是使得在该锁上处于等待状态的线程恢复活性    </p>
+<p>​            但是不保证执行，原因是还需要获取时间片才可以，事实上唤醒</p>
+<p>​            操作使得线程对象还原到Runnable状态</p>
+<p>monitor</p>
+<p>他们是应用于同步问题的人工线程调度工具。讲其本质，首先就要明确monitor的概念，Java中的每个对象都有一个监视器，来监测并发代码的重入。在非多线程编码时该监视器不发挥作用，反之如果在synchronized 范围内，监视器发挥作用。</p>
+<p>wait/notify必须存在于synchronized块中。并且，这三个关键字针对的是同一个监视器（某对象的监视器）。这意味着wait之后，其他线程可以进入同步块执行。</p>
+<p>当某代码并不持有监视器的使用权时去wait或notify，会抛出java.lang.IllegalMonitorStateException。也包括在synchronized块中去调用另一个对象的wait/notify，因为不同对象的监视器不同，同样会抛出此异常。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">主要用法：</span><br><span class="line">synchronized单独使用：</span><br><span class="line">代码块：如下，在多线程环境下，synchronized块中的方法获取了lock实例的monitor，如果实例相同，那么只有一个线程能执行该块内容</span><br><span class="line">	public class Thread1 implements Runnable &#123;</span><br><span class="line">   Object lock;</span><br><span class="line">   public void run() &#123;  </span><br><span class="line">       synchronized(lock)&#123;</span><br><span class="line">         ..do something</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">直接用于方法： 相当于上面代码中用lock来锁定的效果，实际获取的是Thread1类的monitor。更进一步，如果修饰的是static方法，则锁定该类所有实例。</span><br><span class="line"></span><br><span class="line">public class Thread1 implements Runnable &#123;</span><br><span class="line">   public synchronized void run() &#123;  </span><br><span class="line">        ..do something</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">synchronized, wait, notify结合:典型场景生产者消费者问题</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">   * 生产者生产出来的产品交给店员</span><br><span class="line">   */</span><br><span class="line">  public synchronized void produce()</span><br><span class="line">  &#123;</span><br><span class="line">      if(this.product &gt;= MAX_PRODUCT)</span><br><span class="line">      &#123;</span><br><span class="line">          try</span><br><span class="line">          &#123;</span><br><span class="line">              wait();  </span><br><span class="line">              System.out.println(&quot;产品已满,请稍候再生产&quot;);</span><br><span class="line">          &#125;</span><br><span class="line">          catch(InterruptedException e)</span><br><span class="line">          &#123;</span><br><span class="line">              e.printStackTrace();</span><br><span class="line">          &#125;</span><br><span class="line">          return;</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">      this.product++;</span><br><span class="line">      System.out.println(&quot;生产者生产第&quot; + this.product + &quot;个产品.&quot;);</span><br><span class="line">      notifyAll();   //通知等待区的消费者可以取出产品了</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  /**</span><br><span class="line">   * 消费者从店员取产品</span><br><span class="line">   */</span><br><span class="line">  public synchronized void consume()</span><br><span class="line">  &#123;</span><br><span class="line">      if(this.product &lt;= MIN_PRODUCT)</span><br><span class="line">      &#123;</span><br><span class="line">          try</span><br><span class="line">          &#123;</span><br><span class="line">              wait(); </span><br><span class="line">              System.out.println(&quot;缺货,稍候再取&quot;);</span><br><span class="line">          &#125; </span><br><span class="line">          catch (InterruptedException e) </span><br><span class="line">          &#123;</span><br><span class="line">              e.printStackTrace();</span><br><span class="line">          &#125;</span><br><span class="line">          return;</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">      System.out.println(&quot;消费者取走了第&quot; + this.product + &quot;个产品.&quot;);</span><br><span class="line">      this.product--;</span><br><span class="line">      notifyAll();   //通知等待去的生产者可以生产产品了</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="三：死锁"><a href="#三：死锁" class="headerlink" title="三：死锁"></a>三：死锁</h4><p>两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，它们都将无法推进下去。此时称系统处于死锁状态或系统产生了死锁，这些永远在互相等待的进程称为死锁进程。产生四个条件：</p>
+<p>​    请求保持————我不会轻易放弃的，灰太狼</p>
+<p>​    请求互斥————资源的拥有方本身是矛盾的</p>
+<p>​    不可剥夺————不能强行剥夺其他的线程的资源</p>
+<p>​    形成环路————资源本身是唯一的，不可复制</p>
+<h4 id="四：ThreadLocal"><a href="#四：ThreadLocal" class="headerlink" title="四：ThreadLocal"></a>四：ThreadLocal</h4><p>提供一个数据存储，把这个数据共享给每个线程，每个线程都可以自由的增删改这个数据，但是最后修改都是失效的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">	常用方法：</span><br><span class="line">		protected  T initialValue() 返回此线程局部变量的当前线程的“初始值”	</span><br><span class="line">			这个方法在类外无法直接使用，匿名内部类可以解决这个问题</span><br><span class="line">		代码：</span><br><span class="line">			// 构建ThreadLocal的对象，并且初始化线程本地变量</span><br><span class="line">			ThreadLocal&lt;Integer&gt; threadLocal = new ThreadLocal&lt;Integer&gt;() &#123;</span><br><span class="line">				//此时后面的泛型必须要写，否则报错</span><br><span class="line">				@Override</span><br><span class="line">				protected Integer initialValue() &#123;</span><br><span class="line">					return 10;</span><br><span class="line">				&#125;	</span><br><span class="line">			&#125;;</span><br><span class="line">ThreadLocal多线程操作代码</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		ThreadLocal&lt;Integer&gt; threadLocal = new ThreadLocal&lt;Integer&gt;() &#123;</span><br><span class="line">			@Override</span><br><span class="line">			protected Integer initialValue() &#123;</span><br><span class="line">				return 10;</span><br><span class="line">			&#125;	</span><br><span class="line">		&#125;;</span><br><span class="line">		Thread[] ts = new Thread[5];</span><br><span class="line">		for (int i = 0; i &lt; ts.length; i++) &#123;</span><br><span class="line">			ts[i] = new Thread(new Runnable() &#123;		</span><br><span class="line">				@Override</span><br><span class="line">				public void run() &#123;</span><br><span class="line">					//获取线程本地化变量的值</span><br><span class="line">					Integer number = threadLocal.get();</span><br><span class="line">					System.out.println(this+&quot;    &quot;+number);</span><br><span class="line">					//给当前线程的本地化变量赋值</span><br><span class="line">					threadLocal.set((int)(Math.random()*10));</span><br><span class="line">					System.out.println(this+&quot;   &quot;+threadLocal.get());</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;	</span><br><span class="line">		for (int i = 0; i &lt; ts.length; i++) &#123;</span><br><span class="line">			ts[i].start();</span><br><span class="line">		&#125;	</span><br><span class="line">		//也就是说线程对ThreadLocal的修改是无效的，但是每个线程都可以获取到ThreadLocal的值</span><br><span class="line">		System.out.println(threadLocal.get());	</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="五：线程的状态"><a href="#五：线程的状态" class="headerlink" title="五：线程的状态"></a>五：线程的状态</h4><p><strong>New</strong>—-start()——-&gt;&gt;<strong>Runnable(可运行状态)</strong> —–获取cpu——&gt;&gt;<strong>Runing</strong>   ——run()结束或异常退出—–&gt;&gt;<strong>Dead</strong></p>
+<p>线程在Running的过程中可能会遇到阻塞(Blocked) </p>
+<ol>
+<li>调用join()和sleep()方法，sleep()时间结束或被打断，join()中断,IO完成都会回到Runnable状态，等待JVM的调度。</li>
+<li>调用wait()，使该线程处于等待池(wait blocked pool),直到notify()/notifyAll()，线程被唤醒被放到锁定池(lock blocked pool )，释放同步锁使线程回到可运行状态（Runnable）</li>
+<li><p>对Running状态的线程加同步锁(Synchronized)使其进入(lock blocked pool ),同步锁被释放进入可运行状态(Runnable)。</p>
+<p>4.此外，在runnable状态的线程是处于被调度的线程，此时的调度顺序是不一定的。Thread类中的yield方法可以让一个running状态的线程转入runnable。</p>
+</li>
+</ol>
+<h4 id="六：线程池"><a href="#六：线程池" class="headerlink" title="六：线程池"></a>六：线程池</h4>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get" action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            木木夕
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p><p>如梦江湖 如戏人生</p>
+<p></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/22/hexo + github 搭建个人博客/">hexo + github 搭建个人博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Node.js安装及环境变量配置/">Node.js安装及环境变量配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/AngularJS/">AngularJS入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Dubbox/">Dubbox+Zookeeper入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Web Service工作原理及实例/">Web Service工作原理及实例</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/AngularJS/">AngularJS入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Dubbox/">Dubbox+Zookeeper入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Node.js安装及环境变量配置/">Node.js安装及环境变量配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/22/hexo + github 搭建个人博客/">hexo + github 搭建个人博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/虚拟机安装及相关环境配置/">虚拟机安装及相关环境配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/java基础之线程/">java基础之进程与线程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/21/Web Service工作原理及实例/">Web Service工作原理及实例</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/11/21/java基础之线程/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/11/21/java基础之线程/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/11/21/java基础之线程/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/web/" style="font-size: 13.757672402895972px;" class="tag-cloud-link">web</a>
+    
+    <a href="/tags/soa/" style="font-size: 17.797842985198585px;" class="tag-cloud-link">soa</a>
+    
+    <a href="/tags/js/" style="font-size: 15.38704874222454px;" class="tag-cloud-link">js</a>
+    
+    <a href="/tags/hexo/" style="font-size: 12.932002485973847px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/linux/" style="font-size: 9.520279385407026px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/java/" style="font-size: 8.005804610291355px;" class="tag-cloud-link">java</a>
+    
+    <a href="/tags/webservice/" style="font-size: 10.570135105731522px;" class="tag-cloud-link">webservice</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 木木夕 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+
+</html>
