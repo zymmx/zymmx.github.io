@@ -37,7 +37,7 @@
       if (document.images) {
         var avatar = new Image();
         avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg'.split(',')
         var previewsPreLoad = []
         for(var i = 0; i < length; i++) {
           previewsPreLoad.push(new Image())
@@ -49,12 +49,33 @@
 <body>
     <!-- 背景轮播图功能 -->
     <section class="hidden-xs">
-
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
     <div class="gal-menu gal-dropdown">
-
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://zymmx.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
 </div>
     
     <header class="navbar navbar-inverse" id="gal-header">
@@ -76,7 +97,7 @@
                     }
                 </style>
                 <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">木木夕</div>
+                <div class="navbar-brand">卓言 · 木木夕</div>
                 
             </a>
         </div>
@@ -121,6 +142,14 @@
                             <a href="/categories/杂散/">杂散</a>
                         </li>
                         
+                        <li>
+                            <a href="/categories/linux/">linux</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/java基础/">java基础</a>
+                        </li>
+                        
                         
                         <li>
                             <a href="/categories">...</a>
@@ -133,42 +162,9 @@
                 
                 
                 
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-tags"></i>标签
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/tags/web/">web</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/soa/">soa</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/js/">js</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/tags">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
                 <li class="">
                     <a href="/about">
-                        <i class="fa fa-user"></i>关于我
+                        <i class="fa fa-user"></i>给我留言
                     </a>
                 </li>
                 
@@ -420,48 +416,32 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/web/" style="font-size: 15.509339032214001px;" class="tag-cloud-link">web</a>
+    <a href="/tags/web/" style="font-size: 9.637485290339193px;" class="tag-cloud-link">web</a>
     
-    <a href="/tags/soa/" style="font-size: 15.6438948796668px;" class="tag-cloud-link">soa</a>
+    <a href="/tags/soa/" style="font-size: 16.64797919418173px;" class="tag-cloud-link">soa</a>
     
-    <a href="/tags/js/" style="font-size: 11.903381478479524px;" class="tag-cloud-link">js</a>
+    <a href="/tags/js/" style="font-size: 11.982350443977136px;" class="tag-cloud-link">js</a>
     
-    <a href="/tags/hexo/" style="font-size: 12.007077412023655px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 10.954579296455933px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/linux/" style="font-size: 18.735331827071644px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/linux/" style="font-size: 14.206298920875831px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/java/" style="font-size: 17.04674022486649px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 18.898904321239673px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/webservice/" style="font-size: 12.021064074091989px;" class="tag-cloud-link">webservice</a>
+    <a href="/tags/webservice/" style="font-size: 10.530998681351862px;" class="tag-cloud-link">webservice</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
-    </li>
-    
-    <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
-    </li>
-    
-    <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://www.baidu.com/" target="_blank">百度</a>
     </li>
     
 </div>
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
-    </li>
-    
-    <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
-    </li>
-    
-    <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://github.com/zymmx" target="_blank">Github</a>
     </li>
     
 </div>
@@ -475,7 +455,7 @@
     </div>
     <footer id="gal-footer">
     <div class="container">
-        Copyright © 2018 木木夕 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+        Copyright © 2018 木木夕 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/zymmx" target="_blank">zymmx</a>
     </div>
 </footer>
 
@@ -537,5 +517,27 @@
 <script src="/js/oni.js"></script>
 
 
+
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Wed Nov 21 2018 16:14:18 GMT+0800'
+      window.commentConfig.owner = 'zymmx'
+      window.commentConfig.repo = 'zymmx.github.io'
+      window.commentConfig.client_id = 'f0c3abbed1ec9ec406a3'
+      window.commentConfig.client_secret = '853f7d0decff3788a86a34bd5999292c525d7fa8'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Wed Nov 21 2018 16:14:18 GMT+0800',
+        owner: 'zymmx',
+        repo: 'zymmx.github.io',
+        client_id: 'f0c3abbed1ec9ec406a3',
+        client_secret: '853f7d0decff3788a86a34bd5999292c525d7fa8',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
 
 </html>
