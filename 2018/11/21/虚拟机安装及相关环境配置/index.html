@@ -37,7 +37,7 @@
       if (document.images) {
         var avatar = new Image();
         avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg,preview5.jpg,preview6.jpg,preview7.jpg'.split(',')
         var previewsPreLoad = []
         for(var i = 0; i < length; i++) {
           previewsPreLoad.push(new Image())
@@ -49,13 +49,9 @@
 <body>
     <!-- 背景轮播图功能 -->
     <section class="hidden-xs">
-
+  
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
-    
-    <div class="gal-menu gal-dropdown">
-
-</div>
     
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
@@ -121,6 +117,14 @@
                             <a href="/categories/杂散/">杂散</a>
                         </li>
                         
+                        <li>
+                            <a href="/categories/linux/">linux</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/java基础/">java基础</a>
+                        </li>
+                        
                         
                         <li>
                             <a href="/categories">...</a>
@@ -168,7 +172,7 @@
                 
                 <li class="">
                     <a href="/about">
-                        <i class="fa fa-user"></i>关于我
+                        <i class="fa fa-user"></i>给我留言
                     </a>
                 </li>
                 
@@ -242,6 +246,15 @@
     </div>
 </article>
 
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '虚拟机安装及相关环境配置'
+    }
+</script>
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -429,48 +442,32 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/web/" style="font-size: 9.051445897117311px;" class="tag-cloud-link">web</a>
+    <a href="/tags/web/" style="font-size: 15.289368148468299px;" class="tag-cloud-link">web</a>
     
-    <a href="/tags/soa/" style="font-size: 17.27706151122263px;" class="tag-cloud-link">soa</a>
+    <a href="/tags/soa/" style="font-size: 12.580957185374947px;" class="tag-cloud-link">soa</a>
     
-    <a href="/tags/js/" style="font-size: 16.89865602437544px;" class="tag-cloud-link">js</a>
+    <a href="/tags/js/" style="font-size: 11.781967930846704px;" class="tag-cloud-link">js</a>
     
-    <a href="/tags/hexo/" style="font-size: 10.4667743135692px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 14.217962183932219px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/linux/" style="font-size: 13.26305137270765px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/linux/" style="font-size: 18.14516651631376px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/java/" style="font-size: 18.025711956019194px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 19.981075303147765px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/webservice/" style="font-size: 10.525524807794085px;" class="tag-cloud-link">webservice</a>
+    <a href="/tags/webservice/" style="font-size: 8.888506551464591px;" class="tag-cloud-link">webservice</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
-    </li>
-    
-    <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
-    </li>
-    
-    <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://www.baidu.com/" target="_blank">百度</a>
     </li>
     
 </div>
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
-    </li>
-    
-    <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
-    </li>
-    
-    <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://github.com/zymmx" target="_blank">Github</a>
     </li>
     
 </div>
@@ -484,7 +481,7 @@
     </div>
     <footer id="gal-footer">
     <div class="container">
-        Copyright © 2018 木木夕 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+        Copyright © 2018 木木夕 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/zymmx" target="_blank">zymmx</a>
     </div>
 </footer>
 
@@ -537,14 +534,34 @@
     window.slideConfig = {
       prefix: '/imgs/slide/background',
       ext: 'jpg',
-      maxCount: '6'
+      maxCount: ''
     }
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
 
-<script src="/js/oni.js"></script>
 
 
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Wed Nov 21 2018 17:56:42 GMT+0800'
+      window.commentConfig.owner = 'zymmx'
+      window.commentConfig.repo = 'zymmx.github.io'
+      window.commentConfig.client_id = 'f0c3abbed1ec9ec406a3'
+      window.commentConfig.client_secret = '853f7d0decff3788a86a34bd5999292c525d7fa8'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Wed Nov 21 2018 17:56:42 GMT+0800',
+        owner: 'zymmx',
+        repo: 'zymmx.github.io',
+        client_id: 'f0c3abbed1ec9ec406a3',
+        client_secret: '853f7d0decff3788a86a34bd5999292c525d7fa8',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
 
 </html>
