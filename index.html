@@ -151,8 +151,117 @@
 <p>AOP：Aspect Oriented Programming 面向切面编程</p>
 <h3 id="三、Spring的组成"><a href="#三、Spring的组成" class="headerlink" title="三、Spring的组成"></a>三、Spring的组成</h3><p>Spring框架包含的功能大约由20个模块组成。这些模块按组可分为核心容器、数据访问/集成，Web，AOP(面向切面编程)、设备、消息和测试</p>
 <p>核心模块：Beans、Core、Context、SpEL对应四个初始化项目时需要的四个核心包</p>
-<h3 id="四、模块介绍"><a href="#四、模块介绍" class="headerlink" title="四、模块介绍"></a><strong>四、模块介绍</strong></h3><p><img src="file:///C:/Users/Administrator/AppData/Local/YNote/data/qq132A2E2A6F99F50B04B76F27A6BF258B/c5f70e31413a43fcae3e3bf491ebb481/1543914178279.png" alt="img"> </p>
-<p><img src="file:///C:/Users/Administrator/AppData/Local/YNote/data/qq132A2E2A6F99F50B04B76F27A6BF258B/7386423a645241c49b58b67fa3dee1c0/1543914195341.png" alt="img"> </p>
+<h3 id="四、模块介绍"><a href="#四、模块介绍" class="headerlink" title="四、模块介绍"></a><strong>四、模块介绍</strong></h3><table>
+<thead>
+<tr>
+<th>GroupId</th>
+<th>ArtifactId</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>org.springframework</td>
+<td>spring-beans</td>
+<td>Beans 支持，包含 Groovy</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-aop</td>
+<td>基于代理的AOP支持</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-aspects</td>
+<td>基于AspectJ 的切面</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-context</td>
+<td>应用上下文运行时，包括调度和远程抽象</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-context-support</td>
+<td>支持将常见的第三方类库集成到 Spring 应用上下文</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-core</td>
+<td>其他模块所依赖的核心模块</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-expression</td>
+<td>Spring 表达式语言，SpEL</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-instrument</td>
+<td>JVM 引导的仪表（监测器）代理</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-instrument-tomcat</td>
+<td>Tomcat 的仪表（监测器）代理</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-jdbc</td>
+<td>支持包括数据源设置和 JDBC 访问支持</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-jms</td>
+<td>支持包括发送/接收JMS消息的助手类</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-messaging</td>
+<td>对消息架构和协议的支持</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-orm</td>
+<td>对象/关系映射，包括对 JPA 和 Hibernate 的支持</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-oxm</td>
+<td>对象/XML 映射（Object/XML Mapping，OXM）</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-test</td>
+<td>单元测试和集成测试支持组件</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-tx</td>
+<td>事务基础组件，包括对 DAO 的支持及 JCA 的集成</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-web</td>
+<td>web支持包，包括客户端及web远程调用</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-webmvc</td>
+<td>REST web 服务及 web 应用的 MVC 实现</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-webmvc-portlet</td>
+<td>用于 Portlet 环境的MVC实现</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td>spring-websocket</td>
+<td>WebSocket 和 SockJS 实现，包括对 STOMP 的支持</td>
+</tr>
+</tbody>
+</table>
 <h3 id="五、模块详解"><a href="#五、模块详解" class="headerlink" title="五、模块详解"></a><strong>五、模块详解</strong></h3><p><strong>1、core - 核心模块</strong></p>
 <ul>
 <li>spring-core：依赖注入IoC与DI的最基本实现</li>
@@ -216,6 +325,8 @@
 <p>java项目或maven项目</p>
 <p><strong>3、引入jar包</strong></p>
 <p>核心包加日志包</p>
+<p><img src="https://vipkshttps13.wiz.cn/ks/note/view/bb461bed-93db-4f2e-a3f0-69f99ac1fcde/5dade8d7-9a79-463a-9e70-ba524cf55878/index_files/00b71379-4ec0-4dd7-9cc3-e2405a784d2d.png" alt="img"> </p>
+<p><img src="https://vipkshttps13.wiz.cn/ks/note/view/bb461bed-93db-4f2e-a3f0-69f99ac1fcde/5dade8d7-9a79-463a-9e70-ba524cf55878/index_files/a6374126-9990-407e-b0ac-4a13da93f96d.jpg" alt="img"> </p>
 <p><img src="C:\Users\Administrator\AppData\Local\Temp\1543914559520.png" alt="1543914559520"></p>
 <p><img src="C:\Users\Administrator\AppData\Local\Temp\1543914568281.png" alt="1543914568281"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pom:</span><br><span class="line">&lt;!-- spring --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-context&lt;/artifactId&gt;</span><br><span class="line">           &lt;version&gt;4.2.8.RELEASE&lt;/version&gt;</span><br><span class="line">       &lt;/dependency&gt;</span><br><span class="line">       &lt;!-- 日志处理 --&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;log4j&lt;/groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;log4j&lt;/artifactId&gt;</span><br><span class="line">           &lt;version&gt;1.2.17&lt;/version&gt;</span><br><span class="line">       &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
@@ -293,6 +404,7 @@
 <p>测试：</p>
 <p>注意：单实例时测试</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">   public void testInitAndDestroy()&#123;</span><br><span class="line">       AbstractApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext-bean.xml&quot;);</span><br><span class="line">       </span><br><span class="line">       //或者手动调用销毁方法</span><br><span class="line">       context.destroy();</span><br><span class="line">       //或者关闭容器，触发销毁方法</span><br><span class="line">       //context.close();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://vipkshttps13.wiz.cn/ks/note/view/bb461bed-93db-4f2e-a3f0-69f99ac1fcde/e7fa973f-0144-49fd-9631-6fd2d13fea71/index_files/ec75eee5-06ee-42db-a4c9-fa84f1459763.png" alt="img"> </p>
 <p><img src="C:\Users\Administrator\AppData\Local\Temp\1543915535231.png" alt="1543915535231"></p>
 <h3 id="九、对象创建的几种方式"><a href="#九、对象创建的几种方式" class="headerlink" title="九、对象创建的几种方式"></a>九、对象创建的几种方式</h3><p>applicationContext-create.xml</p>
 <p>CreateTest.java</p>
@@ -323,6 +435,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">    public void testProperty()&#123;</span><br><span class="line">        </span><br><span class="line">        ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext-injection.xml&quot;);</span><br><span class="line">        Person p = (Person)context.getBean(&quot;person1&quot;);</span><br><span class="line">        System.out.println(p);    </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>在Person中添加 toString() 方法</p>
 <p>结果：</p>
+<p><img src="https://vipkshttps13.wiz.cn/ks/note/view/bb461bed-93db-4f2e-a3f0-69f99ac1fcde/37d93ce2-a433-4324-9dc8-e7b5e4713b8d/index_files/fdc348b9-4aa6-43af-8896-5b14d184d1c4.png" alt="img"> </p>
 <p><img src="C:\Users\Administrator\AppData\Local\Temp\1543915963624.png" alt="1543915963624"></p>
 <p><strong>2、引用类型注入使用</strong> <strong>ref</strong></p>
 <p>创建Car.java：</p>
@@ -343,6 +456,7 @@
 <p>测试： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">   public void testConstuctor()&#123;</span><br><span class="line">       ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext-injection.xml&quot;);</span><br><span class="line">       Person p = (Person)context.getBean(&quot;person2&quot;);</span><br><span class="line">       System.out.println(p);    </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>结果： </p>
+<p><img src="https://vipkshttps13.wiz.cn/ks/note/view/bb461bed-93db-4f2e-a3f0-69f99ac1fcde/37d93ce2-a433-4324-9dc8-e7b5e4713b8d/index_files/52ffcd7d-a31d-4b4c-af74-ede166a39d39.png" alt="img"> </p>
 <p><img src="C:\Users\Administrator\AppData\Local\Temp\1543916110050.png" alt="1543916110050"></p>
 <p><strong>2、index属性：按参数索引注入</strong></p>
 <p>参数名一致，但位置不一致时，使用 index</p>
@@ -352,6 +466,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean name=&quot;person2&quot; class=&quot;name.yaohuan.spring.bean.Person&quot;&gt;</span><br><span class="line">      &lt;constructor-arg name=&quot;name&quot; value=&quot;helen&quot; index=&quot;0&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">      &lt;constructor-arg name=&quot;car&quot; ref=&quot;car&quot; index=&quot;1&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">  &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
 <p>重新执行第一步的测试用例</p>
 <p>结果：</p>
+<p><img src="https://vipkshttps13.wiz.cn/ks/note/view/bb461bed-93db-4f2e-a3f0-69f99ac1fcde/37d93ce2-a433-4324-9dc8-e7b5e4713b8d/index_files/52ffcd7d-a31d-4b4c-af74-ede166a39d39.png" alt="img"> </p>
 <p><img src="C:\Users\Administrator\AppData\Local\Temp\1543916151374.png" alt="1543916151374"></p>
 <p><strong>3、type属性：按参数类型注入</strong></p>
 <p>参数名和位置一致，但类型不一致时，使用type</p>
@@ -361,6 +476,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean name=&quot;person2&quot; class=&quot;name.yaohuan.spring.bean.Person&quot;&gt;</span><br><span class="line">       &lt;constructor-arg name=&quot;name&quot; value=&quot;988&quot; type=&quot;java.lang.Integer&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">       &lt;constructor-arg name=&quot;car&quot; ref=&quot;car&quot; &gt;&lt;/constructor-arg&gt;</span><br><span class="line">   &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
 <p>重新执行第一步的测试用例</p>
 <p>结果：</p>
+<p><img src="https://vipkshttps13.wiz.cn/ks/note/view/bb461bed-93db-4f2e-a3f0-69f99ac1fcde/37d93ce2-a433-4324-9dc8-e7b5e4713b8d/index_files/91a870d0-c2aa-4e9a-a6ff-addb069b5cb1.png" alt="img"> </p>
 <p><img src="C:\Users\Administrator\AppData\Local\Temp\1543916191914.png" alt="1543916191914"></p>
 <p><strong>三、p名称空间注入</strong></p>
 <p>导入p名称空间</p>
@@ -376,6 +492,7 @@
 <p>测试： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">   public void testP()&#123;</span><br><span class="line">       ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext-injection.xml&quot;);</span><br><span class="line">       Person p = (Person)context.getBean(&quot;person3&quot;);</span><br><span class="line">       System.out.println(p);    </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>结果： </p>
+<p><img src="https://vipkshttps13.wiz.cn/ks/note/view/bb461bed-93db-4f2e-a3f0-69f99ac1fcde/37d93ce2-a433-4324-9dc8-e7b5e4713b8d/index_files/ad12a327-8c18-4d38-a958-7464524252ae.png" alt="img"> </p>
 <p><img src="C:\Users\Administrator\AppData\Local\Temp\1543916271031.png" alt="1543916271031"></p>
 <p><strong>四、spel注入</strong></p>
 <p>spring Expression Language：spring表达式语言</p>
@@ -383,7 +500,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean name=&quot;person4&quot; class=&quot;name.yaohuan.spring.bean.Person&quot; &gt;</span><br><span class="line">        &lt;property name=&quot;name&quot; value=&quot;#&#123;person1.name&#125;&quot; &gt;&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;age&quot; value=&quot;#&#123;person1.age&#125;&quot; &gt;&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;car&quot; ref=&quot;car&quot; &gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br></pre></td></tr></table></figure>
 <p>测试： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">    public void testSpel()&#123;</span><br><span class="line">        ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext-injection.xml&quot;);</span><br><span class="line">        Person p = (Person)context.getBean(&quot;person4&quot;);</span><br><span class="line">        System.out.println(p);    </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>结果： </p>
+<p>结果：</p>
+<p> <img src="https://vipkshttps13.wiz.cn/ks/note/view/bb461bed-93db-4f2e-a3f0-69f99ac1fcde/37d93ce2-a433-4324-9dc8-e7b5e4713b8d/index_files/26bdb133-7d0e-493f-bb3d-980ee044b544.png" alt="img"> </p>
 <p><img src="C:\Users\Administrator\AppData\Local\Temp\1543916315901.png" alt="1543916315901"></p>
 <h3 id="十一、对象的依赖关系-复杂类型注入"><a href="#十一、对象的依赖关系-复杂类型注入" class="headerlink" title="十一、对象的依赖关系-复杂类型注入"></a>十一、对象的依赖关系-复杂类型注入</h3><p>applicationContext-collection.xml</p>
 <p>CollectionTest.java</p>
